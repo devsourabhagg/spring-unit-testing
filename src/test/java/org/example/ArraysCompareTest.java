@@ -20,4 +20,20 @@ public class ArraysCompareTest {
         //Expected :5
         //Actual   :3
     }
+
+    @Test
+    public void testArraySort_NullArray_1(){
+        int[] numbers = null;
+        try{
+            Arrays.sort(numbers);
+        }
+        catch (NullPointerException e){
+        }
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testArraySort_NullArray_2(){
+        int[] numbers = null;
+            Arrays.sort(numbers);
+    }
 }
