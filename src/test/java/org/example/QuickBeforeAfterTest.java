@@ -1,11 +1,14 @@
 package org.example;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 public class QuickBeforeAfterTest {
 
+
+    @BeforeClass
+    public static void beforeClass(){
+        System.out.println("Before Class");
+    }
 
     @Before
     public void setUp(){
@@ -26,4 +29,10 @@ public class QuickBeforeAfterTest {
     public void tearDown(){
         System.out.println("After test");
     }
+
+    @AfterClass
+    public static void afterClass(){
+        System.out.println("After Class");
+    }
+
 }
