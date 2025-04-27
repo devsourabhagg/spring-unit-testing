@@ -4,8 +4,11 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -45,5 +48,25 @@ public class ListTest {
         List listMock = mock(List.class);
         when(listMock.get(anyInt())).thenThrow(new RuntimeException("Something"));
         listMock.get(0);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testMockList_mixingUp(){
+        List listMock = mock(List.class);
+        when(listMock.subList(anyInt(),6)).thenThrow(new RuntimeException("Something"));
+        listMock.get(0);
+    }
+
+    @Test
+    public void testMockListGet_argumentMatchers_usingBDD(){
+        //Given
+        List<String> listMock = mock(List.class);
+        given(listMock.get(anyInt())).willReturn("Sourabh");
+
+        //When
+        String firstElement = listMock.get(0);
+
+        //Then
+        assertThat(firstElement,is("Sourabh"));
     }
 }
