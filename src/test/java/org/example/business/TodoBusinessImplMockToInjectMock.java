@@ -3,13 +3,11 @@ package org.example.business;
 import org.example.service.TodoService;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.MockitoRule;
 
 import java.util.Arrays;
@@ -28,6 +26,7 @@ public class TodoBusinessImplMockToInjectMock {
 
     @Rule
     public MockitoRule rule = MockitoJUnit.rule();
+    //Junit version should be > 4.7
 
     @Mock
     TodoService todoServiceMock;
